@@ -1,4 +1,4 @@
-ventas = LOAD '/datos/ventas.csv' USING PigStorage(',')
+ventas = LOAD '/datos/ventas_500.csv' USING PigStorage(',')
     AS (id:int, nombre:chararray, monto:int, ciudad:chararray, categoria:chararray);
 
 altas = FILTER ventas BY monto > 500;
