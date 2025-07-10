@@ -7,6 +7,8 @@ services:
       - "9870:9870"
     command: /etc/bootstrap.sh namenode
     tty: true
+    volumes:
+      - ./config:/usr/local/hadoop-2.9.2/etc/hadoop
 
   datanode:
     image: suhothayan/hadoop-spark-pig-hive:2.9.2
@@ -15,6 +17,8 @@ services:
       - namenode
     command: /etc/bootstrap.sh datanode
     tty: true
+    volumes:
+      - ./config:/usr/local/hadoop-2.9.2/etc/hadoop
 
   pig:
     image: suhothayan/hadoop-spark-pig-hive:2.9.2
@@ -27,3 +31,4 @@ services:
     volumes:
       - ./datasets:/datos
       - ./pig/scripts:/scripts
+      - ./config:/usr/local/hadoop-2.9.2/etc/hadoop
